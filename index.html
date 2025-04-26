@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lecteur Audio Simple</title>
+    <title>Lecteur Vidéo Simple</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,52 +17,80 @@
         .lecteur {
             text-align: center;
             background: white;
-            padding: 30px;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 800px;
+            width: 90%;
         }
         h1 {
             color: #333;
             margin-top: 0;
         }
+        video {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
         button {
             background: #4CAF50;
             color: white;
             border: none;
-            padding: 12px 24px;
+            padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
             border-radius: 5px;
-            margin: 10px;
+            margin: 5px;
             transition: background 0.3s;
         }
         button:hover {
             background: #45a049;
         }
         .controls {
-            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
         }
     </style>
 </head>
 <body>
     <div class="lecteur">
-        <h1>Mon Lecteur Audio</h1>
-        <audio id="audio" src="Wolfgang Amadeus Mozart - Violin Concerto No.1 in B-flat, 1. Allegro moderato (From Immortal Beloved).mp3"></audio>
+        <h1>Mon Lecteur Vidéo</h1>
+        <video id="videoPlayer" controls>
+            <source src="votre-video.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la lecture vidéo.
+        </video>
         <div class="controls">
             <button onclick="jouer()">▶ Lire</button>
             <button onclick="pause()">⏸ Pause</button>
+            <button onclick="pleinEcran()">⛶ Plein écran</button>
+            <button onclick="mute()">🔇 Son</button>
         </div>
     </div>
 
     <script>
-        const audio = document.getElementById('audio');
+        const video = document.getElementById('videoPlayer');
         
         function jouer() {
-            audio.play();
+            video.play();
         }
         
         function pause() {
-            audio.pause();
+            video.pause();
+        }
+        
+        function pleinEcran() {
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.webkitRequestFullscreen) {
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) {
+                video.msRequestFullscreen();
+            }
+        }
+        
+        function mute() {
+            video.muted = !video.muted;
         }
     </script>
 </body>
