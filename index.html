@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lecteur Vidéo Simple</title>
+    <title>Mag de la GGF</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -33,18 +33,18 @@
             margin-bottom: 15px;
         }
         button {
-            background: #4CAF50;
+            background: #0d8ed8;
             color: white;
             border: none;
-            padding: 10px 20px;
-            font-size: 16px;
+            padding: 20px 40px;
+            font-size: 32px;
             cursor: pointer;
-            border-radius: 5px;
-            margin: 5px;
+            border-radius: 10px;
+            margin: 10px;
             transition: background 0.3s;
         }
         button:hover {
-            background: #45a049;
+            background: #095681;
         }
         .controls {
             display: flex;
@@ -64,7 +64,6 @@
             <button onclick="jouer()">▶ Lire</button>
             <button onclick="pause()">⏸ Pause</button>
             <button onclick="pleinEcran()">⛶ Plein écran</button>
-            <button onclick="mute()">🔇 Son</button>
         </div>
     </div>
 
@@ -87,10 +86,6 @@
             } else if (video.msRequestFullscreen) {
                 video.msRequestFullscreen();
             }
-        }
-        
-        function mute() {
-            video.muted = !video.muted;
         }
     </script>
 </body>
